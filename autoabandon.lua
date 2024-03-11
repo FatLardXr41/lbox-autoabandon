@@ -15,6 +15,10 @@ local function autoabandon()
 		if player == nil then -- if our player is nil, return
             return;
         end
+
+		if not pLocal:IsAlive() then
+			return;
+		end
 		
 		if #players < 4 then -- if we less than 4 players, disconnect.
 			client.Command("disconnect")
