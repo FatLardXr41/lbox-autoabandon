@@ -25,7 +25,11 @@ local function autoabandon()
 		-- i am so fucking stupid :sob:
 		
 		if #players < 4 then -- if we less than 4 players, disconnect.
-			client.Command("disconnect")
+			--client.Command("disconnect")
+			gamecoordinator.AbandonMatch();
+
+			--Fall back. If you are in a community server then AbandonMatch() doesn't work.
+			client.Command("disconnect" ,true)
 		end
 	end
 end
